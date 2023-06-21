@@ -43,7 +43,7 @@ const config: DocsThemeConfig = {
 			<meta property="og:description" content="Documentation for bard-ai" />
 			<meta
 				property="og:image"
-				content={`https://bard-ai-docs.vercel.app/${imageUrl}`}
+				content={`https://bard-ai-docs.vercel.app${imageUrl}`}
 			/>
 		</>
 	),
