@@ -10,4 +10,5 @@
 Powered by [Nextra](https://nextra.site/), and hosted by [Vercel](vercel.com).
 
 Visit `bard-ai` on GitHub here: https://github.com/EvanZhouDev/bard-ai
+
 Visit `bard-ai` on NPM here: https://github.com/package/bard-ai
