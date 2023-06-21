@@ -1,0 +1,36 @@
+import { Callout } from "nextra-theme-docs";
+
+# `askAI` Function
+
+<Callout type="info">
+	Make sure you read through the [Authentication](/prerequisites/authentication)
+	page first, if you haven't already.
+</Callout>
+
+A function under the overarching `Bard` object, used for one-time queries to Bard.
+
+## Example
+
+```javascript copy showLineNumbers {5}
+import Bard, { askAI } from "bard-ai";
+
+await Bard.init(COOKIE_KEY);
+
+console.log(await askAI("Hello world!"));
+```
+
+## Parameters
+
+| Parameter | Type    | Description                                       |
+| --------- | ------- | ------------------------------------------------- |
+| `message` | string  | The message you are querying Bard with. Required. |
+| `useJSON` | boolean | Whether or not to receive JSON response format. Default is `false`  |
+
+## Usage
+The most simple usage simply involves passing your message into `askAI`, and calling it async. The response of `askAI` is a string in Markdown format, and it includes images, codeblocks, and other Markdown accessories.
+
+<Callout>
+	Notice how `askAI` is imported _alongside_ the `Bard` object, with a deconstructuring import. Essentially, I am importing the `askAI` method of the `Bard` object separately, so that it is more concise to use. Feel free to also import `Bard` normally, and call `askAI` with `Bard.askAI()` instead.
+</Callout>
+
+You may also choose to pass in a secondary parameter to opt into recieving a JSON response. Read more about the JSON response [here](/advanced/useJSON).

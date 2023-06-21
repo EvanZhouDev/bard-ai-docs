@@ -1,0 +1,27 @@
+import { Callout } from "nextra-theme-docs";
+
+# Initialization of `bard-ai`
+
+<Callout type="info">
+	Make sure you read through the [Authentication](/prerequisites/authentication)
+	page first, if you haven't already.
+</Callout>
+
+After obtaining your key, you are going to have to initialize it, so that `bard-ai` knows it. You key remains local on your device, so no one else can see it.
+
+## Example
+
+```javascript copy showLineNumbers {3}
+import Bard from "bard-ai";
+
+await Bard.init(COOKIE_KEY);
+```
+
+## Parameters
+
+| Parameter | Type    | Description                                       |
+| --------- | ------- | ------------------------------------------------- |
+| `key` | string  | The `COOKIE_KEY` you are initializing with. Required. |
+
+## Usage
+Simply call the asynchronous function `Bard.init()`, with your cookie key, exactly as it is shown in the example above. It is recommended to store the key in a secure location, and then access it in your file indirectly. This will limit accidently committing or sending your key to GitHub or other platforms.

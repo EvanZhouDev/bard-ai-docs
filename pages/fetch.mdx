@@ -1,0 +1,31 @@
+import { Steps } from "nextra-theme-docs";
+
+# No `fetch`? No problem.
+
+`bard-ai` uses Node's experimental `fetch` function, which is enabled by default now. However, if the environment you are in still doesn't support it, simply install a polyfill, and inject it into global scope.
+
+<Steps>
+### Step 1
+Install `node-fetch`
+```bash copy
+npm install node-fetch
+```
+
+### Step 2
+
+Inject `fetch` into global scope
+
+```javascript copy
+import fetch from "node-fetch";
+globalThis.fetch = fetch;
+```
+
+### Step 3
+
+Include `bard-ai` after that codeblock
+
+```javascript copy
+import Bard from "bard-ai";
+```
+
+</Steps>

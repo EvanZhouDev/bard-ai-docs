@@ -1,0 +1,33 @@
+# The `useJSON` Flag
+
+This flag is used in [`Bard.askAI()`](/basics/askAI) and [`Bard.Chat.ask()`](/basics/chat#bardchatask).
+
+Use this flag to get more information about the return request from Bard.
+
+## Return Structure
+
+```js
+{
+    "content": string,
+    "images": [
+        {
+            "tag": string,
+            "url": string,
+        },
+        ...
+    ] | undefined,
+    "ids": object
+}
+```
+
+Let's walk through what each one of these properties is.
+
+| Property Name     | Type   | Description                                            |
+| ----------------- | ------ | ------------------------------------------------------ |
+| `content`         | string | The Markdown return value of Bard                      |
+| `images`          | object \| undefined | An array of objects with `tag` and `url` properties. Will be `undefined` if no images.    |
+| `images[idx].tag` | string | The Markdown tag that is associated with the image.    |
+| `images[idx].url` | string | The actual URL that leads to the images.               |
+| `ids`             | object | An object that is used to import/export conversations. |
+
+Usually it should not be necessary to use this flag, but it can be used for some certain scenarios, especially if you want to extend this library in some way.

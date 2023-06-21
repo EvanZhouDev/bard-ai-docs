@@ -1,0 +1,63 @@
+import { Callout } from "nextra-theme-docs";
+
+# `Chat` Object
+
+<Callout type="info">
+	Make sure you read through the [Authentication](/prerequisites/authentication)
+	page first, if you haven't already.
+</Callout>
+
+A Class under the overarching `Bard` object, used for continued conversations with Bard.
+
+## Example
+
+```javascript copy showLineNumbers {5-7}
+import Bard from "bard-ai";
+
+await Bard.init(COOKIE_KEY);
+
+let myConversation = new Bard.Chat();
+console.log(await myConversation.ask("How are you?"));
+console.log(await myConversation.ask("What's the last thing I said?"));
+```
+
+## Arguments
+
+| Parameter | Type   | Description                                                                                |
+| --------- | ------ | ------------------------------------------------------------------------------------------ |
+| `ids`     | object | Used for [importing](/advanced/importExportChat) a previous conversation. If left blank, creates a new conversation. |
+
+## Usage
+
+Create a new conversation with the following code:
+
+```javascript copy
+let myConversation = new Bard.Chat();
+```
+
+### `Bard.Chat.ask()`
+
+Asks something to the current `Bard.Chat()` instance.
+
+#### Example
+
+```javascript copy showLineNumbers
+import Bard from "bard-ai";
+
+await Bard.init(COOKIE_KEY);
+
+let myConversation = new Bard.Chat();
+console.log(await myConversation.ask("What is 1+1?"));
+console.log(await myConversation.ask("What is 1 more than that?"));
+```
+
+#### Usage
+Call `Bard.Chat.ask()` asynchronously on the same instance of `Bard.Chat`, and it will remember what was previously said. This is similar to continuing on a "Chat" in ChatGPT.
+
+<Callout type="info">
+The `Bard.Chat.ask()` method has the exact same syntax as `Bard.askAI()` (in fact, they call the same function under the hood). This means that it also supports the [`useJSON`](/advanced/useJSON) flag. Check the [documentation for `Bard.askAI()`](/basics/askAI) for more information.
+</Callout>
+
+### `Bard.Chat.export()`
+
+Exports the current conversation. Go to [Importing/Exporting Chats](/advanced/importExportChat) to learn more.
