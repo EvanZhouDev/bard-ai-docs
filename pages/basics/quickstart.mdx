@@ -10,32 +10,34 @@ Use this page to just get a glimpse of the power of `bard-ai`. Make sure you rea
 To get your first AI output from Bard, copy and paste the following code into your IDE of choice:
 
 ```javascript copy showLineNumbers
-import Bard, { askAI } from "bard-ai";
+import Bard from "bard-ai";
 
-await Bard.init(COOKIE_KEY);
+let myBard = new Bard(COOKIE)
 
-console.log(await askAI("Hello world!"));
+console.log(await myBard.ask("Hello world!"));
 ```
 
 Let's walk through what this code is doing:
 <Steps>
-### Imports
+### Import
 ```javascript copy
-import Bard, { askAI } from "bard-ai";
+import Bard from "bard-ai";
 ```
-We start by importing the overarching `Bard` Object from `bard-ai`, as well as the askAI sub-function alongside it. (We do this to avoid having to write the longer `Bard.askAI()`, but it also works)
+Everything in `bard-ai` is compressed into a singular `Bard` class, and thus `Bard` is the only thing you need to import.
 
-### Initialization
+### Authenticate
 ```javascript copy
-await Bard.init(COOKIE_KEY);
+let myBard = new Bard(COOKIE);
 ```
-Next, we need to initialize `bard-ai`. Because this makes a web request and takes time, make sure to use `await` syntax. Be sure to use your own key here!
+
+Next, we need to initialize `bard-ai`. Create a new `Bard` instance, and pass in your `COOKIE`.
 
 ### Ask Bard!
 ```javascript copy
-console.log(await askAI("Hello world!"));
+console.log(await myBard.ask("Hello world!"));
 ```
-Finally, we use the `askAI` function, with the first parameter of the query to ask Bard something. We log the output.
+Finally, we use the `ask` method on `Bard` to query Google Bard. This is `async`, so ensure you use `await`.
+
 </Steps>
 
-Congratulations! You've made your first request with Bard. Read on for more detailed documentation, including how to continue chats, export conversations, recieve image URLs from Bard, and more.
+Congratulations! You've made your first request with Bard. Read on for more detailed documentation, including how to use Chats, export conversations, and use Google Lens.
